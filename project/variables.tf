@@ -81,3 +81,9 @@ variable az {
   default     = "us-east-2a"
   description = "provide availability zone"
 }
+
+variable ec2_name {
+  type        = string
+  default     = "project"
+  description = "provide instance name"
+}
