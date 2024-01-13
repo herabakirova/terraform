@@ -72,7 +72,7 @@ variable rt_name {
 
 variable ec2_type {
   type        = string
-  default     = "t2.micro"
+  default     = "t3.2xlarge"
   description = "provide instance type"
 }
 

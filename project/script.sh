@@ -2,7 +2,7 @@
 
 sudo apt-get update
 sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
-sudo apt-get install openssl libssl-dev
+sudo apt-get -y install openssl libssl-dev
 cd /tmp
 wget -O nagioscore.tar.gz https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.14.tar.gz
 tar xzf nagioscore.tar.gz
@@ -20,8 +20,8 @@ sudo a2enmod rewrite
 sudo a2enmod cgi
 sudo ufw allow Apache
 sudo ufw reload
-sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-echo "nagiosadmin:kaizen123" | sudo chpasswd
+echo kaizen123 > /home/ubuntu/passw
+sudo htpasswd -c -i /usr/local/nagios/etc/htpasswd.users nagiosadmin < /home/ubuntu/passw
 sudo systemctl restart apache2.service
 sudo systemctl start nagios.service
 sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
